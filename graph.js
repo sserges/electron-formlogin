@@ -44,7 +44,7 @@ db_sondage.find({}, function (err, sondages) {
 	    data: {
 	        labels: ["M", "F"],
 	        datasets: [{
-	            label: '# of Votes',
+	            label: '# of Persons',
 	            data: [groupedByGenre['M'].length, groupedByGenre['F'].length],
 	            backgroundColor: [
 	                'rgba(255, 99, 132, 0.2)',
@@ -83,7 +83,7 @@ db_sondage.find({}, function (err, sondages) {
 	    data: {
 	        labels: ["17", "19", "20"],
 	        datasets: [{
-	            label: '# of Votes',
+	            label: '# of Persons',
 	            data: [groupedByAge['17'].length, groupedByAge['19'].length, groupedByAge['20'].length],
 	            backgroundColor: [
 	                'rgba(255, 99, 132, 0.2)',

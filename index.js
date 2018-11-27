@@ -45,9 +45,11 @@ $('input[type="submit"]').on('click', function(event) {
 function showUserPage() {
 	$('.loginForm').css('display', 'none');
 	$('.userHome').append('<p>Hello ' + localStorage.getItem('username') + '</p>');
-	$('.userHome').append('<a href="#">logout</a>');
+	$('.userHome').append('<p><a id="logout" href="#" class="btn btn-primary">logout</a></p>');
+	$('.userHome').append('<p><a href="#" id="age" class="btn btn-primary">Graph par age</a></p>');
+	$('.userHome').append('<p><a href="#" id="genre" class="btn btn-primary">Graph par genre</a></p>');
 
-	$('a').on('click', function() {
+	$('#logout').on('click', function() {
 		logoutDate = new Date();
 		console.log(logoutDate);
 		var session = {
@@ -68,6 +70,16 @@ function showUserPage() {
 			localStorage.clear();
 		});
 	});
+
+	$('#age').on('click', function() {
+		$('#myChart2').css('display', 'block');
+		$('#myChart').css('display', 'none');
+	});
+
+	$('#genre').on('click', function() {
+		$('#myChart').css('display', 'block');
+		$('#myChart2').css('display', 'none');
+	});
 }
 
 
@@ -76,7 +88,7 @@ function resetForm() {
 	$('#password').val('');
 }
 
-
+require('./graph.js');
 // db.findOne({username: 'koffi'}, function(err, doc) {
 // 	console.log(doc.username + ' ' + doc.password)
 // });
